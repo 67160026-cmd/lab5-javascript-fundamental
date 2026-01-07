@@ -31,13 +31,17 @@ console.log(student);
 console.log(student.getFullName());
 console.log(student.getInfo());
 console.log(student.courses.join(", "));
+```
+
 Output
-yaml
-Copy code
+
+```text
 { firstName: 'Alice', lastName: 'Smith', age: 20, gpa: 3.8, ... }
 Alice Smith
 Alice Smith, Age: 20, GPA: 3.8
 HTML, CSS, JavaScript
+```
+
 อธิบายการทำงาน
 student เป็น Object ที่เก็บทั้งข้อมูลและ function (method)
 
@@ -47,11 +51,10 @@ getFullName() เรียกใช้ข้อมูลภายใน object �
 
 join() ใช้รวม array ให้เป็น string เดียว
 
-2.2 02-functions.js
-8. Returning Objects
+2.2 02-functions.js 8. Returning Objects
 โค้ด
-js
-Copy code
+
+```js
 function createUser(firstName, lastName, age) {
   return {
     firstName,
@@ -67,11 +70,15 @@ function createUser(firstName, lastName, age) {
 const user = createUser("John", "Doe", 30);
 console.log(user);
 console.log(user.getFullName());
+```
+
 Output
-css
-Copy code
+
+```text
 { firstName: 'John', lastName: 'Doe', age: 30, email: 'john.doe@example.com' }
 John Doe
+```
+
 อธิบาย
 function สามารถคืนค่าเป็น object ได้
 
@@ -80,9 +87,9 @@ function สามารถคืนค่าเป็น object ได้
 method ภายใน object ใช้ this เพื่ออ้างถึงข้อมูลของ object
 
 9. Function as Parameter (Callback)
-โค้ด
-js
-Copy code
+   โค้ด
+
+```js
 function processArray(arr, callback) {
   const result = [];
   for (const item of arr) {
@@ -94,30 +101,37 @@ function processArray(arr, callback) {
 const numbers = [1, 2, 3];
 console.log(processArray(numbers, (x) => x * 2));
 console.log(processArray(numbers, (x) => x * x));
+```
+
 Output
-csharp
-Copy code
+
+```text
 [2, 4, 6]
 [1, 4, 9]
+```
+
 อธิบาย
 function สามารถรับ function อื่นเป็นพารามิเตอร์ได้
 
 callback(item) คือการเรียก function ที่ถูกส่งเข้ามา
 
-2.3 03-control-flow.js
-5. Short-Circuit Evaluation
+2.3 03-control-flow.js 5. Short-Circuit Evaluation
 โค้ด
-js
-Copy code
+
+```js
 const user = { name: "John" };
 const admin = null;
 
 const userName = admin?.name || user.name || "Anonymous";
 console.log(userName);
+```
+
 Output
-nginx
-Copy code
+
+```text
 John
+```
+
 อธิบาย
 admin?.name ให้ค่า undefined โดยไม่เกิด error
 
@@ -126,26 +140,28 @@ admin?.name ให้ค่า undefined โดยไม่เกิด error
 JavaScript จะหยุดประเมินทันทีเมื่อรู้ผลลัพธ์
 
 7. Form Validation
-โค้ด
-js
-Copy code
+   โค้ด
+
+```js
 function validateRegistration(formData) {
   const errors = [];
 
-  if (!formData.name || formData.name.length < 3)
-    errors.push("Invalid name");
+  if (!formData.name || formData.name.length < 3) errors.push("Invalid name");
 
-  if (!formData.email.includes("@"))
-    errors.push("Invalid email");
+  if (!formData.email.includes("@")) errors.push("Invalid email");
 
   return { isValid: errors.length === 0, errors };
 }
 
 console.log(validateRegistration({ name: "Jo", email: "abc" }));
+```
+
 Output
-bash
-Copy code
+
+```text
 { isValid: false, errors: [ 'Invalid name', 'Invalid email' ] }
+```
+
 อธิบาย
 ใช้ if ตรวจสอบเงื่อนไขทีละข้อ
 
@@ -153,11 +169,10 @@ Copy code
 
 errors.length === 0 ใช้ตรวจสอบว่าฟอร์มถูกต้องหรือไม่
 
-2.4 04-loops.js
-9. Chaining Methods
+2.4 04-loops.js 9. Chaining Methods
 โค้ด
-js
-Copy code
+
+```js
 const data = [1, 2, 3, 4, 5];
 
 const result = data
@@ -166,9 +181,14 @@ const result = data
   .join(", ");
 
 console.log(result);
+```
+
 Output
-Copy code
+
+```text
 4, 16
+```
+
 อธิบาย
 filter เลือกเฉพาะเลขคู่ → [2, 4]
 
@@ -177,21 +197,25 @@ map ยกกำลังสอง → [4, 16]
 join รวมค่าเป็น string
 
 10. Challenge: Student Grades
-โค้ด
-js
-Copy code
+    โค้ด
+
+```js
 const students = [
   { name: "Alice", score: 95 },
   { name: "Bob", score: 75 },
 ];
 
-const average =
-  students.reduce((sum, s) => sum + s.score, 0) / students.length;
+const average = students.reduce((sum, s) => sum + s.score, 0) / students.length;
 
 console.log(average);
+```
+
 Output
-Copy code
+
+```text
 85
+```
+
 อธิบาย
 reduce ใช้รวมคะแนนทั้งหมด
 
@@ -199,8 +223,8 @@ reduce ใช้รวมคะแนนทั้งหมด
 
 2.5 05-integration.js – Quiz Application
 โค้ด
-js
-Copy code
+
+```js
 const quizzes = [
   { question: "5 + 3 = ?", options: ["8", "7"], correctAnswer: 0 },
 ];
@@ -216,10 +240,14 @@ quizzes.forEach((quiz) => {
 });
 
 console.log(results);
+```
+
 Output (ตัวอย่าง)
-yaml
-Copy code
+
+```text
 [ { question: '5 + 3 = ?', isCorrect: true } ]
+```
+
 อธิบายการทำงาน
 ใช้ array, loop และ condition ร่วมกัน
 
@@ -229,12 +257,6 @@ Math.random() ใช้สุ่มคำตอบ
 
 สามารถนำไปใช้ร่วมกับ filter และ reduce เพื่อคำนวณคะแนนได้
 
-✅ สรุป
-ไฟล์นี้ประกอบด้วย
+```
 
-โค้ด JavaScript ครบทุกกิจกรรม
-
-ตัวอย่างผลลัพธ์ที่ได้จากการรัน
-
-คำอธิบายว่าโค้ดทำงานและสร้างผลลัพธ์อย่างไร
 ```
