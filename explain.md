@@ -33,7 +33,7 @@ console.log(student.getInfo());
 console.log(student.courses.join(", "));
 ```
 
-Output
+### Output
 
 ```text
 { firstName: 'Alice', lastName: 'Smith', age: 20, gpa: 3.8, ... }
@@ -42,7 +42,8 @@ Alice Smith, Age: 20, GPA: 3.8
 HTML, CSS, JavaScript
 ```
 
-อธิบายการทำงาน
+### อธิบายการทำงาน
+
 student เป็น Object ที่เก็บทั้งข้อมูลและ function (method)
 
 this ใช้อ้างถึง object ปัจจุบัน
@@ -52,7 +53,8 @@ getFullName() เรียกใช้ข้อมูลภายใน object �
 join() ใช้รวม array ให้เป็น string เดียว
 
 2.2 02-functions.js 8. Returning Objects
-โค้ด
+
+### โค้ด
 
 ```js
 function createUser(firstName, lastName, age) {
@@ -72,14 +74,15 @@ console.log(user);
 console.log(user.getFullName());
 ```
 
-Output
+### Output
 
 ```text
 { firstName: 'John', lastName: 'Doe', age: 30, email: 'john.doe@example.com' }
 John Doe
 ```
 
-อธิบาย
+### อธิบาย
+
 function สามารถคืนค่าเป็น object ได้
 
 ใช้ object shorthand (firstName แทน firstName: firstName)
@@ -87,7 +90,8 @@ function สามารถคืนค่าเป็น object ได้
 method ภายใน object ใช้ this เพื่ออ้างถึงข้อมูลของ object
 
 9. Function as Parameter (Callback)
-   โค้ด
+
+### โค้ด
 
 ```js
 function processArray(arr, callback) {
@@ -103,20 +107,22 @@ console.log(processArray(numbers, (x) => x * 2));
 console.log(processArray(numbers, (x) => x * x));
 ```
 
-Output
+### Output
 
 ```text
 [2, 4, 6]
 [1, 4, 9]
 ```
 
-อธิบาย
+### อธิบาย
+
 function สามารถรับ function อื่นเป็นพารามิเตอร์ได้
 
 callback(item) คือการเรียก function ที่ถูกส่งเข้ามา
 
 2.3 03-control-flow.js 5. Short-Circuit Evaluation
-โค้ด
+
+### โค้ด
 
 ```js
 const user = { name: "John" };
@@ -126,13 +132,14 @@ const userName = admin?.name || user.name || "Anonymous";
 console.log(userName);
 ```
 
-Output
+### Output
 
 ```text
 John
 ```
 
-อธิบาย
+### อธิบาย
+
 admin?.name ให้ค่า undefined โดยไม่เกิด error
 
 || จะเลือกค่าที่เป็น true ตัวแรก
@@ -140,7 +147,7 @@ admin?.name ให้ค่า undefined โดยไม่เกิด error
 JavaScript จะหยุดประเมินทันทีเมื่อรู้ผลลัพธ์
 
 7. Form Validation
-   โค้ด
+   ### โค้ด
 
 ```js
 function validateRegistration(formData) {
@@ -156,13 +163,14 @@ function validateRegistration(formData) {
 console.log(validateRegistration({ name: "Jo", email: "abc" }));
 ```
 
-Output
+### Output
 
 ```text
 { isValid: false, errors: [ 'Invalid name', 'Invalid email' ] }
 ```
 
-อธิบาย
+### อธิบาย
+
 ใช้ if ตรวจสอบเงื่อนไขทีละข้อ
 
 ถ้าไม่ผ่านจะ push error ลงใน array
@@ -170,7 +178,8 @@ Output
 errors.length === 0 ใช้ตรวจสอบว่าฟอร์มถูกต้องหรือไม่
 
 2.4 04-loops.js 9. Chaining Methods
-โค้ด
+
+### โค้ด
 
 ```js
 const data = [1, 2, 3, 4, 5];
@@ -183,13 +192,14 @@ const result = data
 console.log(result);
 ```
 
-Output
+### Output
 
 ```text
 4, 16
 ```
 
-อธิบาย
+### อธิบาย
+
 filter เลือกเฉพาะเลขคู่ → [2, 4]
 
 map ยกกำลังสอง → [4, 16]
@@ -197,7 +207,7 @@ map ยกกำลังสอง → [4, 16]
 join รวมค่าเป็น string
 
 10. Challenge: Student Grades
-    โค้ด
+    ### โค้ด
 
 ```js
 const students = [
@@ -210,19 +220,21 @@ const average = students.reduce((sum, s) => sum + s.score, 0) / students.length;
 console.log(average);
 ```
 
-Output
+### Output
 
 ```text
 85
 ```
 
-อธิบาย
+### อธิบาย
+
 reduce ใช้รวมคะแนนทั้งหมด
 
 หารด้วยจำนวนนักเรียนเพื่อหาค่าเฉลี่ย
 
 2.5 05-integration.js – Quiz Application
-โค้ด
+
+### โค้ด
 
 ```js
 const quizzes = [
@@ -242,13 +254,14 @@ quizzes.forEach((quiz) => {
 console.log(results);
 ```
 
-Output (ตัวอย่าง)
+### Output (ตัวอย่าง)
 
 ```text
 [ { question: '5 + 3 = ?', isCorrect: true } ]
 ```
 
-อธิบายการทำงาน
+### อธิบายการทำงาน
+
 ใช้ array, loop และ condition ร่วมกัน
 
 Math.random() ใช้สุ่มคำตอบ
@@ -256,7 +269,3 @@ Math.random() ใช้สุ่มคำตอบ
 เก็บผลลัพธ์ไว้ใน results
 
 สามารถนำไปใช้ร่วมกับ filter และ reduce เพื่อคำนวณคะแนนได้
-
-```
-
-```
